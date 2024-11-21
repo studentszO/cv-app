@@ -11,6 +11,7 @@ function GeneralForm() {
 
   return (
     <form>
+      <h2>GENERAL INFORMATION</h2>
       <Input
         className="first-name-input"
         inputName="first-name"
