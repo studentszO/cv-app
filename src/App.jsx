@@ -1,12 +1,13 @@
 import "./App.css";
 import GeneralForm from "./components/forms/general";
+import EducationForm from "./components/forms/education";
 
 function App() {
   return (
     <>
-      <div>
-        <GeneralForm />
-      </div>
+      <GeneralForm />
+      <hr />
+      <EducationForm />
     </>
   );
 }
