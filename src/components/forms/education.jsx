@@ -1,10 +1,12 @@
 import { useState } from "react";
 import Input from "./createInput";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function EducationForm() {
   const [school, setSchool] = useState("");
-  const [startYear, setStartYear] = useState("");
-  const [endYear, setEndYear] = useState("");
+  const [startYear, setStartYear] = useState(new Date());
+  const [endYear, setEndYear] = useState(new Date());
   const [title, setTitle] = useState("");
 
   return (
@@ -27,21 +29,25 @@ function EducationForm() {
         fn={(e) => setSchool(e.target.value)}
       />
 
-      <Input
-        className="start-year-input"
-        inputName="start-year"
-        label="From:"
-        value={startYear}
-        fn={(e) => setStartYear(e.target.value)}
-      />
+      <div className="start-year-input">
+        <label>From:</label>
+        <DatePicker
+          selected={startYear}
+          onChange={(startYear) => setStartYear(startYear)}
+          dateFormat="MM / yyyy"
+          showMonthYearPicker
+        />
+      </div>
 
-      <Input
-        className="end-year-input"
-        inputName="end-year"
-        label="To:"
-        value={endYear}
-        fn={(e) => setEndYear(e.target.value)}
-      />
+      <div className="end-year-input">
+        <label>To:</label>
+        <DatePicker
+          selected={endYear}
+          onChange={(endYear) => setEndYear(endYear)}
+          dateFormat="MM / yyyy"
+          showMonthYearPicker
+        />
+      </div>
     </section>
   );
 }
