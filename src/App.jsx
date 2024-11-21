@@ -1,11 +1,11 @@
 import "./App.css";
-import GeneralInformation from "./components/forms/general";
+import GeneralForm from "./components/forms/general";
 
 function App() {
   return (
     <>
       <div>
-        <GeneralInformation />
+        <GeneralForm />
       </div>
     </>
   );

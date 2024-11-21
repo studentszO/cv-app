@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Input from "../createInput";
+import Input from "./createInput";
 
-function GeneralInformation() {
+function GeneralForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -65,4 +65,4 @@ function GeneralInformation() {
     </form>
   );
 }
-export default GeneralInformation;
+export default GeneralForm;
