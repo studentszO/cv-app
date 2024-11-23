@@ -10,7 +10,7 @@ function GeneralForm() {
   const [country, setCountry] = useState("");
 
   return (
-    <form>
+    <section>
       <h2>GENERAL INFORMATION</h2>
       <Input
         className="first-name-input"
@@ -63,7 +63,7 @@ function GeneralForm() {
           label="Country:"
         />
       </div>
-    </form>
+    </section>
   );
 }
 export default GeneralForm;
