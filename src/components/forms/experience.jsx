@@ -1,14 +1,9 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
 import Input from "./createInput";
 import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
-function ExperienceForm() {
-  const [companyName, setCompanyName] = useState("");
-  const [positionTitle, setPositionTitle] = useState("");
-  const [mainResponsibilities, setMainResponsibilities] = useState("");
-  const [startYear, setStartYear] = useState("");
-  const [endYear, setEndYear] = useState("");
-
+function ExperienceForm({ expData, setExpData }) {
   return (
     <section>
       <h2>WORK EXPERIENCE</h2>
@@ -16,31 +11,35 @@ function ExperienceForm() {
         label="Company name:"
         className="company-name-input"
         inputName="company-name"
-        value={companyName}
-        fn={(e) => setCompanyName(e.target.value)}
+        value={expData.companyName}
+        fn={(e) => setExpData({ ...expData, companyName: e.target.value })}
       />
 
       <Input
         label="Position title:"
         className="position-title-input"
         inputName="position-title"
-        value={positionTitle}
-        fn={(e) => setPositionTitle(e.target.value)}
+        value={expData.positionTitle}
+        fn={(e) => setExpData({ ...expData, positionTitle: e.target.value })}
       />
 
       <Input
         label="Your responsibilities"
         className="responsibilities-input"
         inputName="responsibilities"
-        value={mainResponsibilities}
-        fn={(e) => setMainResponsibilities(e.target.value)}
+        value={expData.mainResponsibilities}
+        fn={(e) =>
+          setExpData({ ...expData, mainResponsibilities: e.target.value })
+        }
       />
 
       <div className="exp-start-year-input">
         <label>From:</label>
         <DatePicker
-          selected={startYear}
-          onChange={(startYear) => setStartYear(startYear)}
+          selected={expData.expStartYear}
+          onChange={(startYear) =>
+            setExpData({ ...expData, expStartYear: startYear })
+          }
           dateFormat="MM / yyyy"
           showMonthYearPicker
         />
@@ -51,8 +50,8 @@ function ExperienceForm() {
         placeholder="12/2012 or TODAY"
         className="exp-end-year-input"
         inputName="exp-end-year"
-        value={endYear}
-        fn={(e) => setEndYear(e.target.value)}
+        value={expData.expEndYear}
+        fn={(e) => setExpData({ ...expData, expEndYear: e.target.value })}
       />
     </section>
   );

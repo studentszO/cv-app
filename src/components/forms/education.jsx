@@ -1,14 +1,9 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
 import Input from "./createInput";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-function EducationForm() {
-  const [school, setSchool] = useState("");
-  const [startYear, setStartYear] = useState(new Date());
-  const [endYear, setEndYear] = useState(new Date());
-  const [title, setTitle] = useState("");
-
+function EducationForm({ eduData, setEduData }) {
   return (
     <section>
       <h2>EDUCATION</h2>
@@ -17,23 +12,25 @@ function EducationForm() {
         className="title-input"
         inputName="title"
         label="Title:"
-        value={title}
-        fn={(e) => setTitle(e.target.value)}
+        value={eduData.title}
+        fn={(e) => setEduData({ ...eduData, title: e.target.value })}
       />
 
       <Input
         className="school-input"
         inputName="school"
         label="School:"
-        value={school}
-        fn={(e) => setSchool(e.target.value)}
+        value={eduData.school}
+        fn={(e) => setEduData({ ...eduData, school: e.target.value })}
       />
 
       <div className="start-year-input">
         <label>From:</label>
         <DatePicker
-          selected={startYear}
-          onChange={(startYear) => setStartYear(startYear)}
+          selected={eduData.schoolStartYear}
+          onChange={(schoolStartYear) =>
+            setEduData({ ...eduData, schoolStartYear: schoolStartYear })
+          }
           dateFormat="MM / yyyy"
           showMonthYearPicker
         />
@@ -42,8 +39,10 @@ function EducationForm() {
       <div className="end-year-input">
         <label>To:</label>
         <DatePicker
-          selected={endYear}
-          onChange={(endYear) => setEndYear(endYear)}
+          selected={eduData.schoolEndYear}
+          onChange={(schoolEndYear) =>
+            setEduData({ ...eduData, schoolEndYear: schoolEndYear })
+          }
           dateFormat="MM / yyyy"
           showMonthYearPicker
         />

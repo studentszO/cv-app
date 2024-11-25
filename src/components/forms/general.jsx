@@ -1,30 +1,23 @@
-import { useState } from "react";
+/* eslint-disable react/prop-types */
 import Input from "./createInput";
 
-function GeneralForm() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
-
+function GeneralForm({ genData, setGenData }) {
   return (
     <section>
       <h2>GENERAL INFORMATION</h2>
       <Input
         className="first-name-input"
         inputName="first-name"
-        fn={(e) => setFirstName(e.target.value)}
-        value={firstName}
+        fn={(e) => setGenData({ ...genData, firstName: e.target.value })}
+        value={genData.firstName}
         label="First name:"
       />
 
       <Input
         className="last-name-input"
         inputName="last-name"
-        fn={(e) => setLastName(e.target.value)}
-        value={lastName}
+        fn={(e) => setGenData({ ...genData, lastName: e.target.value })}
+        value={genData.lastName}
         label="Last name:"
       />
 
@@ -32,8 +25,8 @@ function GeneralForm() {
         className="email-input"
         inputName="email"
         type="email"
-        fn={(e) => setEmail(e.target.value)}
-        value={email}
+        fn={(e) => setGenData({ ...genData, email: e.target.value })}
+        value={genData.email}
         label="E-mail:"
       />
 
@@ -41,8 +34,8 @@ function GeneralForm() {
         className="phone-number-input"
         inputName="phone-number"
         type="tel"
-        fn={(e) => setPhoneNumber(e.target.value)}
-        value={phoneNumber}
+        fn={(e) => setGenData({ ...genData, phoneNumber: e.target.value })}
+        value={genData.phoneNumber}
         label="Phone number:"
       />
 
@@ -50,16 +43,16 @@ function GeneralForm() {
         <Input
           className="city-input"
           inputName="city"
-          fn={(e) => setCity(e.target.value)}
-          value={city}
+          fn={(e) => setGenData({ ...genData, city: e.target.value })}
+          value={genData.city}
           label="City:"
         />
 
         <Input
           className="country-input"
           inputName="country"
-          fn={(e) => setCountry(e.target.value)}
-          value={country}
+          fn={(e) => setGenData({ ...genData, country: e.target.value })}
+          value={genData.country}
           label="Country:"
         />
       </div>
