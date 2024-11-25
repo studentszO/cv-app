@@ -6,6 +6,7 @@ import SubmitButton from "./components/submit";
 import { useState } from "react";
 import MakeHeader from "./components/makeCVHeader";
 import initialData from "./components/initialData";
+import MakeCVMain from "./components/makeCVmain";
 
 function App() {
   const [showCV, setShowCV] = useState(false);
@@ -17,6 +18,11 @@ function App() {
     return (
       <div className="cv">
         <MakeHeader genData={genFormData} />
+        <MakeCVMain
+          eduData={eduFormData}
+          expData={expFormData}
+          genData={genFormData}
+        />
       </div>
     );
 
