@@ -4,6 +4,7 @@ header {
   position: relative;
   display: flex;
   justify-content: space-between;
+  color: white;
 }
 
 header section {
@@ -15,6 +16,8 @@ header section {
   font-weight: 900;
   text-transform: uppercase;
   text-align: start;
+  color: var(--main-clr);
+  text-shadow: 0 0 333px var(--main-clr);
 }
 
 .full-name > div:first-of-type {
