@@ -1,16 +1,17 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Raleway, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light;
+  --main-clr: hsl(23, 100%, 59%);
+  --lighter-text-clr: hsl(0, 0%, 40%);
+  --darker-text-clr: hsl(0, 0%, 10%);
+  --ff: "Raleway", sans-serif;
+  --h1: bold 1.125rem/1.4em var(--ff);
+  --h2: bold 1rem/1.4em var(--ff);
+  --p: 1rem/1.4em var(--ff);
+  --p2: 0.875rem/1.4em var(--ff);
+  --gray100: hsl(0, 0%, 100%);
+  --gray30: hsl(0, 0%, 30%);
+  --gray0: hsl(0, 0%, 0%);
 }
 
 a {

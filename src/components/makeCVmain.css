@@ -1,37 +1,26 @@
 :root {
   --section-margin: 7px;
-  --main-clr: rgb(255, 127, 47);
 }
 
 .cv-main {
   display: flex;
-  color: rgb(12, 12, 12);
+  color: var(--darker-text-clr);
 }
 .cv-main > aside {
   width: 33%;
 }
-
+h2 {
+  font: var(--h2);
+  color: var(--gray0);
+}
 .section-title {
-  background-color: rgb(18, 18, 18);
+  /* background-color: var(--main-clr); */
   display: flex;
   align-items: center;
   justify-content: start;
-  border-radius: 5px;
-  color: rgb(235, 228, 228);
-  background: linear-gradient(to left, #b8b8b8, #5a5a5a);
-}
-.section-title svg {
-  width: 17px;
-  fill: var(--main-clr);
-}
-.section-title span {
-  padding: 0 var(--section-margin);
-}
-.section-title span:first-of-type {
-  padding-left: var(--section-margin);
-  background-color: #434343;
-  border-right: 2px solid white;
-  border-radius: 5px 0 0 5px;
+  border-bottom: 3px solid var(--main-clr);
+  font: var(--h1);
+  color: var(--main-clr);
 }
 
 .all-schools-container,
@@ -42,25 +31,24 @@ main.cv-main > main {
   margin: 10px;
 }
 .school-years {
-  padding-left: 8px;
-  font-size: 0.9rem;
-  margin-top: -4px;
-  font-style: italic;
+  font: var(--p2);
+  color: var(--gray30);
 }
 .all-schools-container h3 {
   padding-left: 6px;
 }
 .school-container,
 .about-me-container > .about-me {
-  margin: 5px 0 5px 13px;
-  border-left: var(--main-clr) solid 5px;
-  padding: 3px 0 3px 7px;
+  margin: 4px 0 4px 0px;
 }
 .school-name {
-  padding-left: 8px;
-  padding-top: 4px;
+  font: var(--p);
+  color: var(--gray0);
 }
-
+.about-me-container > .about-me {
+  border: none;
+  font: var(--p);
+}
 main.cv-main > main {
   width: 66%;
 }

@@ -1,8 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --main-clr: hsl(23, 100%, 59%);
+  --lighter-text-clr: hsl(0, 0%, 40%);
+  --darker-text-clr: hsl(0, 0%, 10%);
+  --ff: "Raleway", sans-serif;
+  --h1: bold 1.125rem/1.4em var(--ff);
+  --h2: bold 1rem/1.4em var(--ff);
+  --p: 1rem/1.4em var(--ff);
+  --p2: 0.875rem/1.4em var(--ff);
+  --gray100: hsl(0, 0%, 100%);
+  --gray30: hsl(0, 0%, 30%);
+  --gray0: hsl(0, 0%, 0%);
+}
+
 #root {
   /* max-width: 1280px; */
   margin: 0 auto;
   padding: 0;
-  text-align: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 .cv {
