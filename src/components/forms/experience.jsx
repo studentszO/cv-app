@@ -3,16 +3,15 @@ import Input from "./createInput";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-function ExperienceForm({ expData, setExpData }) {
+function ExperienceForm({ expData, setExpData, keyId }) {
   return (
-    <section>
-      <h2>WORK EXPERIENCE</h2>
+    <>
       <Input
         label="Company name:"
         className="company-name-input"
         inputName="company-name"
         value={expData.companyName}
-        fn={(e) => setExpData({ ...expData, companyName: e.target.value })}
+        fn={(e) => setExpData(keyId, "companyName", e.target.value)}
       />
 
       <Input
@@ -20,7 +19,7 @@ function ExperienceForm({ expData, setExpData }) {
         className="position-title-input"
         inputName="position-title"
         value={expData.positionTitle}
-        fn={(e) => setExpData({ ...expData, positionTitle: e.target.value })}
+        fn={(e) => setExpData(keyId, "positionTitle", e.target.value)}
       />
 
       <Input
@@ -28,18 +27,14 @@ function ExperienceForm({ expData, setExpData }) {
         className="responsibilities-input"
         inputName="responsibilities"
         value={expData.mainResponsibilities}
-        fn={(e) =>
-          setExpData({ ...expData, mainResponsibilities: e.target.value })
-        }
+        fn={(e) => setExpData(keyId, "mainResponsibilities", e.target.value)}
       />
 
       <div className="exp-start-year-input">
         <label>From:</label>
         <DatePicker
           selected={expData.expStartYear}
-          onChange={(startYear) =>
-            setExpData({ ...expData, expStartYear: startYear })
-          }
+          onChange={(startYear) => setExpData(keyId, "expStartYear", startYear)}
           dateFormat="MM / yyyy"
           showMonthYearPicker
         />
@@ -51,9 +46,9 @@ function ExperienceForm({ expData, setExpData }) {
         className="exp-end-year-input"
         inputName="exp-end-year"
         value={expData.expEndYear}
-        fn={(e) => setExpData({ ...expData, expEndYear: e.target.value })}
+        fn={(e) => setExpData(keyId, "expEndYear", e.target.value)}
       />
-    </section>
+    </>
   );
 }
 

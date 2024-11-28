@@ -3,17 +3,15 @@ import Input from "./createInput";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-function EducationForm({ eduData, setEduData }) {
+function MakeInputsBlockForEducation({ eduData, setEduData, keyId }) {
   return (
-    <section>
-      <h2>EDUCATION</h2>
-
+    <>
       <Input
         className="title-input"
         inputName="title"
         label="Title:"
         value={eduData.title}
-        fn={(e) => setEduData({ ...eduData, title: e.target.value })}
+        fn={(e) => setEduData(keyId, "title", e.target.value)}
       />
 
       <Input
@@ -21,7 +19,7 @@ function EducationForm({ eduData, setEduData }) {
         inputName="school"
         label="School:"
         value={eduData.school}
-        fn={(e) => setEduData({ ...eduData, school: e.target.value })}
+        fn={(e) => setEduData(keyId, "school", e.target.value)}
       />
 
       <div className="start-year-input">
@@ -29,7 +27,7 @@ function EducationForm({ eduData, setEduData }) {
         <DatePicker
           selected={eduData.schoolStartYear}
           onChange={(schoolStartYear) =>
-            setEduData({ ...eduData, schoolStartYear: schoolStartYear })
+            setEduData(keyId, "schoolStartYear", schoolStartYear)
           }
           dateFormat="MM / yyyy"
           showMonthYearPicker
@@ -41,14 +39,14 @@ function EducationForm({ eduData, setEduData }) {
         <DatePicker
           selected={eduData.schoolEndYear}
           onChange={(schoolEndYear) =>
-            setEduData({ ...eduData, schoolEndYear: schoolEndYear })
+            setEduData(keyId, "schoolEndYear", schoolEndYear)
           }
           dateFormat="MM / yyyy"
           showMonthYearPicker
         />
       </div>
-    </section>
+    </>
   );
 }
 
-export default EducationForm;
+export default MakeInputsBlockForEducation;

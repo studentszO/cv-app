@@ -1,26 +1,27 @@
 /* eslint-disable react/prop-types */
 import MakeH2Title from "./container-title";
+import FormatDate from "./dateFormatter";
 
 function MakeMainWork({ expData }) {
-  const startYear = expData.expStartYear.toLocaleDateString("en-US", {
-    month: "2-digit",
-    year: "numeric",
-  });
-  const endYear = expData.expEndYear.toLocaleDateString("en-US", {
-    month: "2-digit",
-    year: "numeric",
-  });
   return (
     <section className="all-work-exps-container">
       <MakeH2Title title="Work experience" />
-      <div className="work-exp-container">
-        <h2>{expData.companyName}</h2>
-        <div className="name">{expData.positionTitle}</div>
-        <div className="years">
-          <span>{startYear}</span> - <span>{endYear}</span>
-        </div>
-        <p>{expData.mainResponsibilities}</p>
-      </div>
+      <ul>
+        {expData.map((work) => {
+          return (
+            <li key={work.id} className="work-exp-container">
+              <h2>{work.companyName}</h2>
+              <div className="name">{work.positionTitle}</div>
+              <div className="years">
+                <span>{FormatDate(work.expStartYear)}</span> -{" "}
+                <span>{FormatDate(work.expEndYear)}</span>
+              </div>
+              <p>{work.mainResponsibilities}</p>
+            </li>
+          );
+        })}
+        )
+      </ul>
     </section>
   );
 }
