@@ -1,7 +1,3 @@
-:root {
-  --section-margin: 7px;
-}
-
 .cv-main {
   display: flex;
   color: var(--darker-text-clr);
