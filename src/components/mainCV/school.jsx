@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import MakeH2Title from "./h2title";
+import MakeH2Title from "./container-title";
 
 function MakeMainSchool({ eduData }) {
   const startYear = eduData.schoolStartYear.toLocaleDateString("en-US", {
@@ -14,11 +14,11 @@ function MakeMainSchool({ eduData }) {
     <section className="all-schools-container">
       <MakeH2Title title="Education" />
       <div className="school-container">
-        <h3>{eduData.title}</h3>
-        <div className="school-years">
+        <h2>{eduData.title}</h2>
+        <div className="name">{eduData.school}</div>
+        <div className="years">
           <span>{startYear}</span> - <span>{endYear}</span>
         </div>
-        <div className="school-name">{eduData.school}</div>
       </div>
     </section>
   );

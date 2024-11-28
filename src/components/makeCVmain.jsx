@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import MakeMainSchool from "./mainCV/school";
 import "./makeCVmain.css";
-import MakeH2Title from "./mainCV/h2title";
+import MakeH2Title from "./mainCV/container-title";
+import MakeMainWork from "./mainCV/work";
 
 function MakeCVMain({ eduData, expData, genData }) {
   return (
@@ -14,6 +15,7 @@ function MakeCVMain({ eduData, expData, genData }) {
           <MakeH2Title title="About me" />
           <div className="about-me">{genData.aboutMe}</div>
         </section>
+        <MakeMainWork expData={expData} />
       </main>
     </main>
   );

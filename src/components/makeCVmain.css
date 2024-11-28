@@ -26,7 +26,7 @@ main.cv-main > main {
   text-align: start;
   margin: 10px;
 }
-.school-years {
+.years {
   font: var(--p2);
   color: var(--gray30);
 }
@@ -37,7 +37,7 @@ main.cv-main > main {
 .about-me-container > .about-me {
   margin: 4px 0 4px 0px;
 }
-.school-name {
+.name {
   font: var(--p);
   color: var(--gray0);
 }
@@ -47,4 +47,8 @@ main.cv-main > main {
 }
 main.cv-main > main {
   width: 66%;
+}
+
+.work-exp-container p {
+  font: var(--p);
 }
