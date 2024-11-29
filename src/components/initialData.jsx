@@ -30,11 +30,17 @@ const skillsFormData = {
   id: 0,
 };
 
+const langFormData = {
+  language: "",
+  id: 0,
+};
+
 const initialData = {
   generalFormData,
   eduFormData,
   expFormData,
   skillsFormData,
+  langFormData,
 };
 
 export default initialData;

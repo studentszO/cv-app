@@ -16,10 +16,13 @@ function App() {
   const [skillsFormData, setSkillsData] = useState([
     initialData.skillsFormData,
   ]);
+  const [langFormData, setLangData] = useState([initialData.langFormData]);
   const [schoolId, setSchoolId] = useState(1);
   const [workId, setWorkId] = useState(1);
   const [skillsId, setSkillsId] = useState(1);
+  const [langId, setLangId] = useState(1);
 
+  // Change handlers
   const handleEducationFormChange = (index, inputField, value) => {
     const updatedInputs = [...eduFormData];
     updatedInputs[index][inputField] = value;
@@ -28,11 +31,18 @@ function App() {
 
   const handleSkillsChange = (inputId, value) => {
     const updatedInputs = [...skillsFormData];
-    console.log(updatedInputs);
     updatedInputs[
       updatedInputs.findIndex((skill) => skill.id === inputId)
     ].name = value;
     setSkillsData(updatedInputs);
+  };
+
+  const handleLangChange = (inputId, value) => {
+    const updatedInputs = [...langFormData];
+    updatedInputs[
+      updatedInputs.findIndex((lang) => lang.id === inputId)
+    ].language = value;
+    setLangData(updatedInputs);
   };
 
   const handleWorkExpFormChange = (
@@ -48,6 +58,7 @@ function App() {
     setExpData(updatedInputs);
   };
 
+  // Button handlers
   const addSchool = () => {
     setEduData([...eduFormData, { ...initialData.eduFormData, id: schoolId }]);
     setSchoolId((prevId) => prevId + 1);
@@ -63,6 +74,11 @@ function App() {
     setSkillsId((prevId) => prevId + 1);
   };
 
+  const addLang = () => {
+    setLangData([...langFormData, { language: "", id: langId }]);
+    setLangId((prevId) => prevId + 1);
+  };
+
   const addWorkExpResponsibilities = (keyId) => {
     const updatedData = [...expFormData];
     updatedData[keyId]["mainResponsibilities"] = [
@@ -72,6 +88,7 @@ function App() {
     setExpData(updatedData);
   };
 
+  // Pages view
   if (showCV)
     return (
       <div className="cv">
@@ -144,6 +161,21 @@ function App() {
             </li>
           ))}
           <button onClick={addSkills}>Add new skill</button>
+        </ul>
+      </section>
+
+      <section>
+        <h2>LANGUAGES</h2>
+        <ul>
+          {langFormData.map((lang) => (
+            <li key={lang.id}>
+              <input
+                value={lang.language}
+                onChange={(e) => handleLangChange(lang.id, e.target.value)}
+              ></input>
+            </li>
+          ))}
+          <button onClick={addLang}>Add new skill</button>
         </ul>
       </section>
 
