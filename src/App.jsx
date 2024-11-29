@@ -13,13 +13,26 @@ function App() {
   const [genFormData, setGenData] = useState(initialData.generalFormData);
   const [expFormData, setExpData] = useState([initialData.expFormData]);
   const [eduFormData, setEduData] = useState([initialData.eduFormData]);
+  const [skillsFormData, setSkillsData] = useState([
+    initialData.skillsFormData,
+  ]);
   const [schoolId, setSchoolId] = useState(1);
   const [workId, setWorkId] = useState(1);
+  const [skillsId, setSkillsId] = useState(1);
 
   const handleEducationFormChange = (index, inputField, value) => {
     const updatedInputs = [...eduFormData];
     updatedInputs[index][inputField] = value;
     setEduData(updatedInputs);
+  };
+
+  const handleSkillsChange = (inputId, value) => {
+    const updatedInputs = [...skillsFormData];
+    console.log(updatedInputs);
+    updatedInputs[
+      updatedInputs.findIndex((skill) => skill.id === inputId)
+    ].name = value;
+    setSkillsData(updatedInputs);
   };
 
   const handleWorkExpFormChange = (
@@ -43,6 +56,11 @@ function App() {
   const addWorkExp = () => {
     setExpData([...expFormData, { ...initialData.expFormData, id: workId }]);
     setWorkId((prevId) => prevId + 1);
+  };
+
+  const addSkills = () => {
+    setSkillsData([...skillsFormData, { name: "", id: skillsId }]);
+    setSkillsId((prevId) => prevId + 1);
   };
 
   const addWorkExpResponsibilities = (keyId) => {
@@ -70,7 +88,9 @@ function App() {
   return (
     <form onClick={(e) => e.preventDefault()} action="#" method="POST">
       <GeneralForm genData={genFormData} setGenData={setGenData} />
+
       <hr />
+
       <section>
         <h2>EDUCATION</h2>
         <ul>
@@ -88,7 +108,9 @@ function App() {
           Add a new school
         </button>
       </section>
+
       <hr />
+
       <section>
         <h2>WORK EXPERIENCE</h2>
         <ul>
@@ -107,7 +129,24 @@ function App() {
           Add a new work experience
         </button>
       </section>
+
       <hr />
+
+      <section>
+        <h2>SKILLS</h2>
+        <ul>
+          {skillsFormData.map((skill) => (
+            <li key={skill.id}>
+              <input
+                value={skill.name}
+                onChange={(e) => handleSkillsChange(skill.id, e.target.value)}
+              ></input>
+            </li>
+          ))}
+          <button onClick={addSkills}>Add new skill</button>
+        </ul>
+      </section>
+
       <SubmitButton onClick={() => setShowCV(true)} />
     </form>
   );
