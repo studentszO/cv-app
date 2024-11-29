@@ -3,7 +3,7 @@ import Input from "./createInput";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-function ExperienceForm({ expData, setExpData, keyId }) {
+function ExperienceForm({ expData, setExpData, keyId, addResp }) {
   return (
     <>
       <Input
@@ -22,13 +22,30 @@ function ExperienceForm({ expData, setExpData, keyId }) {
         fn={(e) => setExpData(keyId, "positionTitle", e.target.value)}
       />
 
-      <Input
-        label="Your responsibilities"
-        className="responsibilities-input"
-        inputName="responsibilities"
-        value={expData.mainResponsibilities}
-        fn={(e) => setExpData(keyId, "mainResponsibilities", e.target.value)}
-      />
+      <div className="responsibilities-input">
+        <label htmlFor="responsibilities-input">Your responsibilities</label>
+        {expData.mainResponsibilities.map((resp, index) => {
+          return (
+            <input
+              key={index}
+              name="responsibilities"
+              value={resp}
+              onChange={(e) =>
+                setExpData(keyId, "mainResponsibilities", e.target.value, index)
+              }
+            />
+          );
+        })}
+        <button
+          type="button"
+          onClick={() => {
+            addResp(keyId);
+            console.log(expData.mainResponsibilities);
+          }}
+        >
+          Add new
+        </button>
+      </div>
 
       <div className="exp-start-year-input">
         <label>From:</label>

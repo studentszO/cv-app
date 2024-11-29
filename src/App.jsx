@@ -18,13 +18,20 @@ function App() {
 
   const handleEducationFormChange = (index, inputField, value) => {
     const updatedInputs = [...eduFormData];
-    eduFormData[index][inputField] = value;
+    updatedInputs[index][inputField] = value;
     setEduData(updatedInputs);
   };
 
-  const handleWorkExpFormChange = (index, inputField, value) => {
+  const handleWorkExpFormChange = (
+    index,
+    inputField,
+    value,
+    respIndex = undefined,
+  ) => {
     const updatedInputs = [...expFormData];
-    expFormData[index][inputField] = value;
+    if (respIndex !== undefined)
+      updatedInputs[index][inputField][respIndex] = value;
+    else updatedInputs[index][inputField] = value;
     setExpData(updatedInputs);
   };
 
@@ -38,9 +45,19 @@ function App() {
     setWorkId((prevId) => prevId + 1);
   };
 
+  const addWorkExpResponsibilities = (keyId) => {
+    const updatedData = [...expFormData];
+    updatedData[keyId]["mainResponsibilities"] = [
+      ...updatedData[keyId]["mainResponsibilities"],
+      "",
+    ];
+    setExpData(updatedData);
+  };
+
   if (showCV)
     return (
       <div className="cv">
+        <button onClick={() => setShowCV(false)}>SHOW INPUTS</button>
         <MakeHeader genData={genFormData} />
         <MakeCVMain
           eduData={eduFormData}
@@ -81,6 +98,7 @@ function App() {
                 expData={work}
                 setExpData={handleWorkExpFormChange}
                 keyId={work.id}
+                addResp={addWorkExpResponsibilities}
               />
             </li>
           ))}

@@ -16,11 +16,12 @@ function MakeMainWork({ expData }) {
                 <span>{FormatDate(work.expStartYear)}</span> -{" "}
                 <span>{FormatDate(work.expEndYear)}</span>
               </div>
-              <p>{work.mainResponsibilities}</p>
+              {work.mainResponsibilities.map((resp, index) => (
+                <p key={index}>{resp}</p>
+              ))}
             </li>
           );
         })}
-        )
       </ul>
     </section>
   );
