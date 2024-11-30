@@ -100,7 +100,7 @@ function App() {
   if (showCV)
     return (
       <div className="cv">
-        <button onClick={() => setShowCV(false)}>SHOW INPUTS</button>
+        {/* <button onClick={() => setShowCV(false)}>SHOW INPUTS</button> */}
         <MakeHeader genData={genFormData} />
         <MakeCVMain
           eduData={eduFormData}

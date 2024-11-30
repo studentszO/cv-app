@@ -22,24 +22,29 @@ function MakeHeader({ genData }) {
   );
 
   return (
-    <header>
-      <div className="polygon"></div>
-      <section className="full-name">
-        <div>{genData.firstName}</div>
-        <div>{genData.lastName}</div>
-      </section>
-      <section className="left-side">
-        <div>
-          {genData.phoneNumber} {phoneSVG}
+    <>
+      <header>
+        <div className="header">
+          <div className="polygon"></div>
+          <section className="full-name">
+            <div>{genData.firstName}</div>
+            <div>{genData.lastName}</div>
+          </section>
+          <section className="right-side">
+            <div>
+              {genData.phoneNumber} {phoneSVG}
+            </div>
+            <div>
+              {genData.email} {mailSVG}
+            </div>
+            <div>
+              {genData.city} - {genData.country} {addressSVG}
+            </div>
+          </section>
         </div>
-        <div>
-          {genData.email} {mailSVG}
-        </div>
-        <div>
-          {genData.city} - {genData.country} {addressSVG}
-        </div>
-      </section>
-    </header>
+        <div className="border"></div>
+      </header>
+    </>
   );
 }
 

@@ -1,18 +1,40 @@
+:root {
+  --header-name: 3rem/1.25em var(--ff);
+}
+
 header {
-  width: 100%;
+  /* width: 100%; */
+  position: relative;
+}
+header > .header {
   border-radius: 5px;
   position: relative;
   display: flex;
   justify-content: space-between;
   color: white;
+  height: 222px;
+  clip-path: polygon(0 0, 110% 0, 110% 90%, 0 95%);
+  filter: drop-shadow(1, 1, 1);
+}
+header .border {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 227px;
+  background-color: var(--main-clr);
+  top: 0;
+  clip-path: polygon(0 0, 110% 0, 110% 90%, 0 95%);
 }
 
 header section {
-  padding: 5px 45px;
+  padding: 5px 40px;
 }
 
 .full-name {
-  font-size: 200%;
+  margin: 0;
+  padding-top: 40px;
+  height: max-content;
+  font: var(--header-name);
   font-weight: 900;
   text-transform: uppercase;
   text-align: start;
@@ -24,20 +46,20 @@ header section {
   margin-bottom: -23px;
 }
 
-.left-side {
+.right-side {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  gap: 5px;
+  justify-content: center;
+  gap: 20px;
 }
-.left-side > div {
+.right-side > div {
   display: flex;
   justify-content: end;
   align-items: center;
 }
-.left-side svg {
+.right-side svg {
   width: 25px;
-  margin-left: 10px;
+  margin: 0 10px;
   fill: rgb(212, 212, 212);
   filter: drop-shadow(0px 0px 4px rgba(139, 139, 139, 0.318));
 }
@@ -54,10 +76,10 @@ header section {
   clip-path: polygon(62% 0, 100% 0, 100% 100%, 56% 100%);
 }
 
-header::after {
+.header::after {
   content: "";
   top: 0;
-  left: 0;
+  right: 0;
   z-index: -1;
   position: absolute;
   background: radial-gradient(
@@ -70,15 +92,15 @@ header::after {
   height: 100%;
 }
 
-header::before {
+.header::before {
   content: "";
   top: 0;
-  left: 0;
+  right: 0;
   z-index: -1;
   position: absolute;
   background-image: url(../assets/cat-han-W_5Eakb1598-unsplash.jpg);
   background-size: 100%;
-  filter: opacity(0.6) saturate(0);
+  filter: opacity(0.9) saturate(0);
   width: 100%;
   height: 100%;
 }
