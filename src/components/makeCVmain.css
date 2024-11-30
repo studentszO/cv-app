@@ -1,6 +1,7 @@
 .cv-main {
   display: flex;
   color: var(--darker-text-clr);
+  margin-top: 40px;
 }
 .cv-main > aside {
   width: 35%;
