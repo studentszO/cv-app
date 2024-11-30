@@ -3,39 +3,33 @@
   color: var(--darker-text-clr);
 }
 .cv-main > aside {
-  width: 33%;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 h2 {
   font: var(--h2);
   color: var(--gray0);
 }
 .section-title {
-  /* background-color: var(--main-clr); */
-  display: flex;
-  align-items: center;
-  justify-content: start;
   border-bottom: 3px solid var(--main-clr);
   font: var(--h1);
   color: var(--main-clr);
+  margin-bottom: 8px;
 }
 
-.all-schools-container,
+aside,
 main.cv-main > main {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: start;
-  margin: 10px;
+  margin: 20px 28px;
 }
 .years {
   font: var(--p2);
   color: var(--gray30);
-}
-.all-schools-container h3 {
-  padding-left: 6px;
-}
-.school-container,
-.about-me-container > .about-me {
-  margin: 4px 0 4px 0px;
 }
 .name {
   font: var(--p);
@@ -46,9 +40,55 @@ main.cv-main > main {
   font: var(--p);
 }
 main.cv-main > main {
-  width: 66%;
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
 
 .work-exp-container p {
   font: var(--p);
+  display: flex;
+  gap: 4px;
+}
+.work-exp-container p::before {
+  content: "-";
+  display: block;
+  color: var(--main-clr);
+  font: var(--h1);
+}
+
+.all-skills-container > ul {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.skill-container {
+  font: var(--p);
+  color: var(--gray100);
+  background-color: var(--main-clr);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.lang-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lang-level-container {
+  display: flex;
+  gap: 4px;
+}
+.lang-level-full,
+.lang-level-empty {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  background-color: var(--main-clr);
+  border: 1px solid var(--main-clr);
+}
+.lang-level-empty {
+  background-color: transparent;
 }

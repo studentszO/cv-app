@@ -7,7 +7,9 @@
 }
 
 .cv {
-  width: 80vw;
+  /* width: 80vw; */
   border: 4px solid var(--gray30);
   border-radius: 5px;
+  height: 1123px;
+  aspect-ratio: 1/1.414;
 }

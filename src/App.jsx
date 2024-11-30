@@ -45,6 +45,14 @@ function App() {
     setLangData(updatedInputs);
   };
 
+  const handleLangLevelChange = (inputId, value) => {
+    const updatedInputs = [...langFormData];
+    updatedInputs[
+      updatedInputs.findIndex((lang) => lang.id === inputId)
+    ].level = value;
+    setLangData(updatedInputs);
+  };
+
   const handleWorkExpFormChange = (
     index,
     inputField,
@@ -75,7 +83,7 @@ function App() {
   };
 
   const addLang = () => {
-    setLangData([...langFormData, { language: "", id: langId }]);
+    setLangData([...langFormData, { language: "", level: 1, id: langId }]);
     setLangId((prevId) => prevId + 1);
   };
 
@@ -98,6 +106,8 @@ function App() {
           eduData={eduFormData}
           expData={expFormData}
           genData={genFormData}
+          skillsData={skillsFormData}
+          langData={langFormData}
         />
       </div>
     );
@@ -160,7 +170,9 @@ function App() {
               ></input>
             </li>
           ))}
-          <button onClick={addSkills}>Add new skill</button>
+          <button onClick={addSkills} type="button">
+            Add new skill
+          </button>
         </ul>
       </section>
 
@@ -173,9 +185,23 @@ function App() {
                 value={lang.language}
                 onChange={(e) => handleLangChange(lang.id, e.target.value)}
               ></input>
+              <label htmlFor="skill-lvl">Level: </label>
+              <input
+                type="number"
+                min="1"
+                max="5"
+                step="1"
+                name="skill-lvl"
+                value={lang.level}
+                onChange={(e) => handleLangLevelChange(lang.id, e.target.value)}
+                id="skill-lvl"
+              />{" "}
+              / 5
             </li>
           ))}
-          <button onClick={addLang}>Add new skill</button>
+          <button onClick={addLang} type="button">
+            Add a new language
+          </button>
         </ul>
       </section>
 
