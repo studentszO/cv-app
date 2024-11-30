@@ -2,6 +2,7 @@
   font-family: Raleway, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: light;
   --main-clr: hsl(23, 100%, 59%);
+  --main-clr-darker: hsl(23, 100%, 50%);
   --lighter-text-clr: hsl(0, 0%, 40%);
   --darker-text-clr: hsl(0, 0%, 10%);
   --ff: "Raleway", sans-serif;
@@ -10,6 +11,7 @@
   --p: 1rem/1.4em var(--ff);
   --p2: 0.875rem/1.4em var(--ff);
   --gray100: hsl(0, 0%, 100%);
+  --gray70: hsl(0, 0%, 70%);
   --gray30: hsl(0, 0%, 30%);
   --gray0: hsl(0, 0%, 0%);
 }

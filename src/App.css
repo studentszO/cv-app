@@ -4,6 +4,9 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .cv {
@@ -12,4 +15,28 @@
   border-radius: 5px;
   height: 1123px;
   aspect-ratio: 1/1.414;
+}
+
+.edit-button {
+  fill: var(--gray100);
+  width: max-content;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font: var(--h1);
+  margin: 10px;
+  color: var(--gray100);
+  border: 2px solid var(--main-clr-darker);
+  /* outline: none; */
+  background-color: var(--main-clr);
+}
+.edit-button:hover,
+.edit-button:focus {
+  background-color: var(--main-clr-darker);
+  border-color: var(--main-clr);
+}
+.edit-button svg {
+  width: 30px;
 }
