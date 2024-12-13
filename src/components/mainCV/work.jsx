@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import MakeH2Title from "./container-title";
-import FormatDate from "./dateFormatter";
 
 function MakeMainWork({ expData }) {
   return (
@@ -13,8 +12,8 @@ function MakeMainWork({ expData }) {
               <h2>{work.companyName}</h2>
               <div className="name">{work.positionTitle}</div>
               <div className="years">
-                <span>{FormatDate(work.expStartYear)}</span> -{" "}
-                <span>{FormatDate(work.expEndYear)}</span>
+                <span>{work.expStartYear}</span> -{" "}
+                <span>{work.expEndYear}</span>
               </div>
               {work.mainResponsibilities.map((resp, index) => (
                 <p key={index}>{resp}</p>

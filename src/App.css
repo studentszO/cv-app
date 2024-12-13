@@ -70,6 +70,12 @@ form input {
   border: 2px solid var(--gray30);
   font: var(--p);
 }
+form input::placeholder {
+  font: var(--p2);
+}
+form div.date input {
+  width: 150px;
+}
 form input:focus,
 form input:hover {
   border-color: var(--main-clr);

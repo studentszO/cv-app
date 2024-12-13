@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import MakeH2Title from "./container-title";
-import FormatDate from "./dateFormatter";
 
 function MakeMainSchool({ eduData }) {
   return (
@@ -13,8 +12,8 @@ function MakeMainSchool({ eduData }) {
               <h2>{school.title}</h2>
               <div className="name">{school.school}</div>
               <div className="years">
-                <span>{FormatDate(school.schoolStartYear)}</span> -{" "}
-                <span>{FormatDate(school.schoolEndYear)}</span>
+                <span>{school.schoolStartYear}</span> -{" "}
+                <span>{school.schoolEndYear}</span>
               </div>
             </li>
           );

@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
 import Input from "./createInput";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 function MakeInputsBlockForEducation({ eduData, setEduData, keyId }) {
   return (
@@ -22,29 +20,23 @@ function MakeInputsBlockForEducation({ eduData, setEduData, keyId }) {
         fn={(e) => setEduData(keyId, "school", e.target.value)}
       />
 
-      <div className="start-year-input">
-        <label>From:</label>
-        <DatePicker
-          selected={eduData.schoolStartYear}
-          onChange={(schoolStartYear) =>
-            setEduData(keyId, "schoolStartYear", schoolStartYear)
-          }
-          dateFormat="MM / yyyy"
-          showMonthYearPicker
-        />
-      </div>
+      <Input
+        className="start-year-input date"
+        inputName="start-year"
+        placeholder="MM/YYYY"
+        label="From:"
+        value={eduData.schoolStartYear}
+        fn={(e) => setEduData(keyId, "schoolStartYear", e.target.value)}
+      />
 
-      <div className="end-year-input">
-        <label>To:</label>
-        <DatePicker
-          selected={eduData.schoolEndYear}
-          onChange={(schoolEndYear) =>
-            setEduData(keyId, "schoolEndYear", schoolEndYear)
-          }
-          dateFormat="MM / yyyy"
-          showMonthYearPicker
-        />
-      </div>
+      <Input
+        className="end-year-input date"
+        inputName="end-year"
+        placeholder="MM/YYYY"
+        label="To:"
+        value={eduData.schoolEndYear}
+        fn={(e) => setEduData(keyId, "schoolEndYear", e.target.value)}
+      />
     </>
   );
 }
