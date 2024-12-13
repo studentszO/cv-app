@@ -60,9 +60,13 @@ function App() {
     respIndex = undefined,
   ) => {
     const updatedInputs = [...expFormData];
-    if (respIndex !== undefined)
-      updatedInputs[index][inputField][respIndex] = value;
-    else updatedInputs[index][inputField] = value;
+    console.log("TESt:", index);
+    console.log(updatedInputs);
+    if (typeof index === "object") {
+      updatedInputs[
+        updatedInputs.findIndex((object) => object.id === index.id)
+      ] = { ...index };
+    } else updatedInputs[index][inputField][respIndex] = value;
     setExpData(updatedInputs);
   };
 
@@ -72,14 +76,41 @@ function App() {
     setSchoolId((prevId) => prevId + 1);
   };
 
+  const removeSchool = (id) => {
+    const newData = [...eduFormData];
+    newData.splice(
+      newData.findIndex((data) => data.id === id),
+      1,
+    );
+    setEduData(newData);
+  };
+
   const addWorkExp = () => {
     setExpData([...expFormData, { ...initialData.expFormData, id: workId }]);
     setWorkId((prevId) => prevId + 1);
   };
 
-  const addSkills = () => {
+  const removeWorkExp = (id) => {
+    const newData = [...expFormData];
+    newData.splice(
+      newData.findIndex((data) => data.id === id),
+      1,
+    );
+    setExpData(newData);
+  };
+
+  const addSkill = () => {
     setSkillsData([...skillsFormData, { name: "", id: skillsId }]);
     setSkillsId((prevId) => prevId + 1);
+  };
+
+  const removeSkill = (id) => {
+    const newData = [...skillsFormData];
+    newData.splice(
+      newData.findIndex((data) => data.id === id),
+      1,
+    );
+    setSkillsData(newData);
   };
 
   const addLang = () => {
@@ -87,7 +118,16 @@ function App() {
     setLangId((prevId) => prevId + 1);
   };
 
-  const addWorkExpResponsibilities = (keyId) => {
+  const removeLang = (id) => {
+    const newData = [...langFormData];
+    newData.splice(
+      newData.findIndex((data) => data.id === id),
+      1,
+    );
+    setLangData(newData);
+  };
+
+  const addWorkExpResponsibility = (keyId) => {
     const updatedData = [...expFormData];
     updatedData[keyId]["mainResponsibilities"] = [
       ...updatedData[keyId]["mainResponsibilities"],
@@ -139,6 +179,13 @@ function App() {
                   setEduData={handleEducationFormChange}
                   keyId={school.id}
                 />
+                <button
+                  className="remove-btn"
+                  type="button"
+                  onClick={() => removeSchool(school.id)}
+                >
+                  remove this school
+                </button>
               </li>
             ))}
           </ul>
@@ -156,8 +203,15 @@ function App() {
                   expData={work}
                   setExpData={handleWorkExpFormChange}
                   keyId={work.id}
-                  addResp={addWorkExpResponsibilities}
+                  addResp={addWorkExpResponsibility}
                 />
+                <button
+                  className="remove-btn"
+                  type="button"
+                  onClick={() => removeWorkExp(work.id)}
+                >
+                  remove this company
+                </button>
               </li>
             ))}
           </ul>
@@ -175,10 +229,17 @@ function App() {
                   value={skill.name}
                   onChange={(e) => handleSkillsChange(skill.id, e.target.value)}
                 ></input>
+                <button
+                  type="button"
+                  className="rm-cross-btn"
+                  onClick={() => removeSkill(skill.id)}
+                >
+                  X
+                </button>
               </li>
             ))}
           </ul>
-          <button onClick={addSkills} type="button">
+          <button onClick={addSkill} type="button">
             Add new skill
           </button>
         </section>
@@ -209,6 +270,13 @@ function App() {
                     />{" "}
                     / 5
                   </div>
+                  <button
+                    type="button"
+                    className="rm-cross-btn"
+                    onClick={() => removeLang(lang.id)}
+                  >
+                    X
+                  </button>
                 </div>
               </li>
             ))}

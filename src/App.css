@@ -124,17 +124,57 @@ form button {
   display: flex;
   justify-content: center;
   align-items: center;
-  content: "➕";
-  font-size: 1rem;
+  content: "+";
+  font-size: 2rem;
   border-radius: 100%;
   width: 20px;
   height: 19px;
-  color: var(--gray20);
+  color: var(--gray100);
 }
-.responsibilities-input > button {
+.responsibilities-input > div > div {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.responsibilities-input input {
+  flex: 1;
+}
+.rm-cross-btn {
+  margin: 0;
+  color: var(--gray100);
+  color: var(--rm-clr);
+  border: 1px solid var(--rm-clr);
+  background: var(--gray15);
+}
+.rm-cross-btn:hover,
+.rm-cross-btn:focus {
+  color: var(--gray100);
+  background: var(--rm-clr);
+}
+.responsibilities-input > button,
+.remove-btn {
   font: var(--btn-font);
   width: 100%;
+  background-color: var(--gray30);
+  color: var(--gray100);
   margin: 0;
+}
+.remove-btn {
+  color: var(--rm-clr);
+  background: var(--gray15);
+  border: 2px solid var(--rm-clr);
+}
+.responsibilities-input > button:focus,
+.responsibilities-input > button:hover {
+  background-color: var(--add-clr);
+}
+.remove-btn:hover,
+.remove-btn:focus {
+  background-color: var(--rm-clr);
+  color: var(--gray100);
+}
+li:first-of-type .remove-btn {
+  display: none;
 }
 .responsibilities-input > div {
   display: flex;
@@ -152,8 +192,12 @@ form button {
   flex: 1 1 calc(100% / 3 - 2px);
   max-width: calc(100% / 3 - 3px);
 }
+.skills-section li {
+  gap: 2px;
+}
 .skills-section input {
   width: 100%;
+  flex: 1;
 }
 .lang-section ul {
   gap: 4px;

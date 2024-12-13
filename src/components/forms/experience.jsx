@@ -1,7 +1,21 @@
 /* eslint-disable react/prop-types */
 import Input from "./createInput";
 
-function ExperienceForm({ expData, setExpData, keyId, addResp }) {
+function ExperienceForm({ expData, setExpData, keyId }) {
+  const addWorkExpResponsibility = () => {
+    const updatedData = { ...expData };
+    updatedData["mainResponsibilities"] = [
+      ...updatedData["mainResponsibilities"],
+      "",
+    ];
+    setExpData(updatedData);
+  };
+
+  const removeWorkExpResponsibility = (index) => {
+    const newData = { ...expData };
+    newData.mainResponsibilities.splice(index, 1);
+    setExpData(newData);
+  };
   return (
     <>
       <Input
@@ -43,23 +57,31 @@ function ExperienceForm({ expData, setExpData, keyId, addResp }) {
         <div>
           {expData.mainResponsibilities.map((resp, index) => {
             return (
-              <input
-                key={index}
-                name="responsibilities"
-                value={resp}
-                onChange={(e) =>
-                  setExpData(
-                    keyId,
-                    "mainResponsibilities",
-                    e.target.value,
-                    index,
-                  )
-                }
-              />
+              <div key={index}>
+                <input
+                  name="responsibilities"
+                  value={resp}
+                  onChange={(e) =>
+                    setExpData(
+                      keyId,
+                      "mainResponsibilities",
+                      e.target.value,
+                      index,
+                    )
+                  }
+                />
+                <button
+                  type="button"
+                  className="rm-cross-btn"
+                  onClick={() => removeWorkExpResponsibility(index)}
+                >
+                  X
+                </button>
+              </div>
             );
           })}
         </div>
-        <button type="button" onClick={() => addResp(keyId)}>
+        <button type="button" onClick={() => addWorkExpResponsibility(keyId)}>
           Add a new responsibility
         </button>
       </div>
