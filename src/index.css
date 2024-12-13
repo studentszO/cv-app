@@ -1,18 +1,25 @@
 :root {
   font-family: Raleway, system-ui, Avenir, Helvetica, Arial, sans-serif;
   color-scheme: light;
-  --main-clr: hsl(23, 100%, 59%);
+  --main-clr: hsl(23, 100%, 60%);
+  --add-clr: hsl(88, 100%, 65%);
+  --rm-clr: hsl(23, 100%, 60%);
   --main-clr-darker: hsl(23, 100%, 50%);
   --lighter-text-clr: hsl(0, 0%, 40%);
   --darker-text-clr: hsl(0, 0%, 10%);
   --ff: "Raleway", sans-serif;
+  --title: bold 2rem/1.4em var(--ff);
   --h1: bold 1.125rem/1.4em var(--ff);
   --h2: bold 1rem/1.4em var(--ff);
   --p: 1rem/1.4em var(--ff);
   --p2: 0.875rem/1.4em var(--ff);
+  --btn-font: bold 0.8rem/1.4em var(--ff);
   --gray100: hsl(0, 0%, 100%);
   --gray70: hsl(0, 0%, 70%);
+  --gray40: hsl(0, 0%, 40%);
   --gray30: hsl(0, 0%, 30%);
+  --gray20: hsl(0, 0%, 20%);
+  --gray15: hsl(0, 0%, 15%);
   --gray0: hsl(0, 0%, 0%);
 }
 
@@ -27,4 +34,5 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url("assets/bg.png");
 }

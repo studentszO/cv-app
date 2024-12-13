@@ -22,31 +22,6 @@ function ExperienceForm({ expData, setExpData, keyId, addResp }) {
         fn={(e) => setExpData(keyId, "positionTitle", e.target.value)}
       />
 
-      <div className="responsibilities-input">
-        <label htmlFor="responsibilities-input">Your responsibilities</label>
-        {expData.mainResponsibilities.map((resp, index) => {
-          return (
-            <input
-              key={index}
-              name="responsibilities"
-              value={resp}
-              onChange={(e) =>
-                setExpData(keyId, "mainResponsibilities", e.target.value, index)
-              }
-            />
-          );
-        })}
-        <button
-          type="button"
-          onClick={() => {
-            addResp(keyId);
-            console.log(expData.mainResponsibilities);
-          }}
-        >
-          Add new
-        </button>
-      </div>
-
       <div className="exp-start-year-input">
         <label>From:</label>
         <DatePicker
@@ -65,6 +40,31 @@ function ExperienceForm({ expData, setExpData, keyId, addResp }) {
         value={expData.expEndYear}
         fn={(e) => setExpData(keyId, "expEndYear", e.target.value)}
       />
+      <div className="responsibilities-input">
+        <label htmlFor="responsibilities-input">Your responsibilities</label>
+        <div>
+          {expData.mainResponsibilities.map((resp, index) => {
+            return (
+              <input
+                key={index}
+                name="responsibilities"
+                value={resp}
+                onChange={(e) =>
+                  setExpData(
+                    keyId,
+                    "mainResponsibilities",
+                    e.target.value,
+                    index,
+                  )
+                }
+              />
+            );
+          })}
+        </div>
+        <button type="button" onClick={() => addResp(keyId)}>
+          Add a new responsibility
+        </button>
+      </div>
     </>
   );
 }

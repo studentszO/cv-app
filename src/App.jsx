@@ -124,100 +124,104 @@ function App() {
     );
 
   return (
-    <form onClick={(e) => e.preventDefault()} action="#" method="POST">
-      <GeneralForm genData={genFormData} setGenData={setGenData} />
+    <>
+      <header>MAKE YOUR CV - THE APP</header>
+      <form onClick={(e) => e.preventDefault()} action="#" method="POST">
+        <GeneralForm genData={genFormData} setGenData={setGenData} />
 
-      <hr />
+        <section className="education-section">
+          <h1>EDUCATION</h1>
+          <ul>
+            {eduFormData.map((school) => (
+              <li key={school.id}>
+                <MakeInputsBlockForEducation
+                  eduData={school}
+                  setEduData={handleEducationFormChange}
+                  keyId={school.id}
+                />
+              </li>
+            ))}
+          </ul>
+          <button type="button" onClick={addSchool}>
+            Add a new school
+          </button>
+        </section>
 
-      <section>
-        <h2>EDUCATION</h2>
-        <ul>
-          {eduFormData.map((school) => (
-            <li key={school.id}>
-              <MakeInputsBlockForEducation
-                eduData={school}
-                setEduData={handleEducationFormChange}
-                keyId={school.id}
-              />
-            </li>
-          ))}
-        </ul>
-        <button type="button" onClick={addSchool}>
-          Add a new school
-        </button>
-      </section>
+        <section className="work-exp-section">
+          <h1>WORK EXPERIENCE</h1>
+          <ul>
+            {expFormData.map((work) => (
+              <li key={work.id}>
+                <ExperienceForm
+                  expData={work}
+                  setExpData={handleWorkExpFormChange}
+                  keyId={work.id}
+                  addResp={addWorkExpResponsibilities}
+                />
+              </li>
+            ))}
+          </ul>
+          <button type="button" onClick={addWorkExp}>
+            Add a new work experience
+          </button>
+        </section>
 
-      <hr />
-
-      <section>
-        <h2>WORK EXPERIENCE</h2>
-        <ul>
-          {expFormData.map((work) => (
-            <li key={work.id}>
-              <ExperienceForm
-                expData={work}
-                setExpData={handleWorkExpFormChange}
-                keyId={work.id}
-                addResp={addWorkExpResponsibilities}
-              />
-            </li>
-          ))}
-        </ul>
-        <button type="button" onClick={addWorkExp}>
-          Add a new work experience
-        </button>
-      </section>
-
-      <hr />
-
-      <section>
-        <h2>SKILLS</h2>
-        <ul>
-          {skillsFormData.map((skill) => (
-            <li key={skill.id}>
-              <input
-                value={skill.name}
-                onChange={(e) => handleSkillsChange(skill.id, e.target.value)}
-              ></input>
-            </li>
-          ))}
+        <section className="skills-section">
+          <h1>SKILLS</h1>
+          <ul>
+            {skillsFormData.map((skill) => (
+              <li key={skill.id}>
+                <input
+                  value={skill.name}
+                  onChange={(e) => handleSkillsChange(skill.id, e.target.value)}
+                ></input>
+              </li>
+            ))}
+          </ul>
           <button onClick={addSkills} type="button">
             Add new skill
           </button>
-        </ul>
-      </section>
+        </section>
 
-      <section>
-        <h2>LANGUAGES</h2>
-        <ul>
-          {langFormData.map((lang) => (
-            <li key={lang.id}>
-              <input
-                value={lang.language}
-                onChange={(e) => handleLangChange(lang.id, e.target.value)}
-              ></input>
-              <label htmlFor="skill-lvl">Level: </label>
-              <input
-                type="number"
-                min="1"
-                max="5"
-                step="1"
-                name="skill-lvl"
-                value={lang.level}
-                onChange={(e) => handleLangLevelChange(lang.id, e.target.value)}
-                id="skill-lvl"
-              />{" "}
-              / 5
-            </li>
-          ))}
+        <section className="lang-section">
+          <h1>LANGUAGES</h1>
+          <ul>
+            {langFormData.map((lang) => (
+              <li key={lang.id}>
+                <input
+                  value={lang.language}
+                  onChange={(e) => handleLangChange(lang.id, e.target.value)}
+                ></input>
+                <div>
+                  <label htmlFor="skill-lvl">Level: </label>
+                  <div>
+                    <input
+                      type="number"
+                      min="1"
+                      max="5"
+                      step="1"
+                      name="skill-lvl"
+                      value={lang.level}
+                      onChange={(e) =>
+                        handleLangLevelChange(lang.id, e.target.value)
+                      }
+                      id="skill-lvl"
+                    />{" "}
+                    / 5
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
           <button onClick={addLang} type="button">
             Add a new language
           </button>
-        </ul>
-      </section>
-
-      <SubmitButton onClick={() => setShowCV(true)} />
-    </form>
+        </section>
+      </form>
+      <footer className="shadow">
+        <SubmitButton onClick={() => setShowCV(true)} />
+      </footer>
+    </>
   );
 }
 
