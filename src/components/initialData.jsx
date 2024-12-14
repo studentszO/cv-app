@@ -32,6 +32,7 @@ const skillsFormData = {
 
 const langFormData = {
   language: "",
+  level: 1,
   id: 0,
 };
 
