@@ -165,7 +165,11 @@ function App() {
 
   return (
     <>
-      <header>MAKE YOUR CV - THE APP</header>
+      <header id="header-mobile">
+        <div>Make your CV</div>
+        <div>The App</div>
+      </header>
+      <header id="header-not-mobile">Make your CV - The App</header>
       <form onClick={(e) => e.preventDefault()} action="#" method="POST">
         <GeneralForm genData={genFormData} setGenData={setGenData} />
 

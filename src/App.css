@@ -19,11 +19,14 @@
   color: var(--gray15);
   padding: 15px 0;
   text-align: center;
-  width: 106%;
+  width: calc(100% + 2 * 16px);
   border-radius: 5px 5px 0 0;
   margin-top: -16px;
   margin-bottom: 40px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 10px -10px;
+}
+#header-mobile {
+  display: none;
 }
 
 .cv {
@@ -255,5 +258,69 @@ footer button:focus {
     width: 100%;
     height: 100%;
     border: none;
+  }
+}
+
+/* MOBILE RESPONSIVE DESIGN */
+@media (max-width: 700px) {
+  #root {
+    max-width: 85%;
+    margin: 30px auto;
+  }
+  .skills-section li,
+  .lang-section li {
+    flex: 1 1 calc(100% / 2 - 2px);
+    max-width: calc(100% / 2 - 3px);
+  }
+  form input::placeholder {
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 461px) {
+    #header-not-mobile {
+      display: none;
+    }
+    #root > #header-mobile {
+      display: flex;
+      flex-direction: column;
+    }
+    #root > #header-mobile div:last-child {
+      font-size: 1.6rem;
+      margin-top: -11px;
+    }
+  }
+
+  @media (max-width: 564px) {
+    form div.date {
+      flex: 1;
+      min-width: calc(100% / 2 - 8px);
+    }
+    form div.date input {
+      flex: 1;
+      width: unset;
+    }
+  }
+
+  @media (max-width: 430px) {
+    #skill-lvl {
+      width: 10px;
+    }
+    footer {
+      width: 115%;
+    }
+  }
+
+  @media (max-width: 350px) {
+    .skills-section li,
+    .lang-section li {
+      flex: 1 1 100%;
+      max-width: 100%;
+    }
+    form input::placeholder {
+      font-size: 0.7rem;
+    }
+    #skill-lvl {
+      width: max-content;
+    }
   }
 }
