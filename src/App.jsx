@@ -150,15 +150,17 @@ function App() {
         <button onClick={() => setShowCV(false)} className="edit-button">
           {editSVG} EDIT MY CV
         </button>
-        <div className="cv">
-          <MakeHeader genData={genFormData} />
-          <MakeCVMain
-            eduData={eduFormData}
-            expData={expFormData}
-            genData={genFormData}
-            skillsData={skillsFormData}
-            langData={langFormData}
-          />
+        <div className="cv-container">
+          <div className="cv">
+            <MakeHeader genData={genFormData} />
+            <MakeCVMain
+              eduData={eduFormData}
+              expData={expFormData}
+              genData={genFormData}
+              skillsData={skillsFormData}
+              langData={langFormData}
+            />
+          </div>
         </div>
       </>
     );

@@ -36,6 +36,22 @@
   height: 297mm;
   background-color: var(--gray100);
 }
+@media (max-width: 850px) {
+  #root:has(.cv-container) {
+    width: 85%;
+  }
+  .cv-container {
+    width: 100%;
+    overflow: scroll;
+    button {
+      position: sticky;
+    }
+  }
+  .cv {
+    margin: auto;
+    /* overflow: hidden; */
+  }
+}
 
 .shadow {
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
@@ -253,8 +269,11 @@ footer button:focus {
     display: none;
   }
   .cv {
+    -webkit-print-color-adjust: exact; /* For Safari and Chrome */
+    print-color-adjust: exact;
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     border: none;
