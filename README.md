@@ -1,8 +1,9 @@
-# React + Vite
+# CV-App by chryszO
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CV-App project for The Odin Project.
 
-Currently, two official plugins are available:
+First project made with ReactJS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What I learned
+- How to use React with .jsx files
+- How to use the React Hook useState.
