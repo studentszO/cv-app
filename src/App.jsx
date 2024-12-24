@@ -60,13 +60,18 @@ function App() {
     respIndex = undefined,
   ) => {
     const updatedInputs = [...expFormData];
-    console.log("TESt:", index);
-    console.log(updatedInputs);
+
+    // If change happened when adding/removing a responsibility
     if (typeof index === "object") {
       updatedInputs[
         updatedInputs.findIndex((object) => object.id === index.id)
       ] = { ...index };
-    } else updatedInputs[index][inputField][respIndex] = value;
+    }
+    // If the change happened in input other than the responsibilities block
+    else if (!respIndex) updatedInputs[index][inputField] = value;
+    // If change happened in the responsibilities input
+    else updatedInputs[index][inputField][respIndex] = value;
+
     setExpData(updatedInputs);
   };
 
