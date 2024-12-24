@@ -67,7 +67,7 @@ main.cv-main > main {
 }
 .skill-container {
   font: var(--p);
-  color: var(--gray100);
+  color: var(--gray0);
   background-color: var(--main-clr);
   padding: 4px 8px;
   border-radius: 4px;
