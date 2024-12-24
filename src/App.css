@@ -63,6 +63,9 @@
 }
 form > section {
   margin-bottom: 40px;
+  background-color: var(--gray15);
+  border-radius: 5px;
+  padding: 8px;
 }
 form section > h1 {
   margin-bottom: 12px;
@@ -320,7 +323,7 @@ footer button:focus {
     }
   }
 
-  @media (max-width: 430px) {
+  @media (max-width: 448px) {
     #skill-lvl {
       width: 10px;
     }
@@ -329,7 +332,7 @@ footer button:focus {
     }
   }
 
-  @media (max-width: 350px) {
+  @media (max-width: 366px) {
     .skills-section li,
     .lang-section li {
       flex: 1 1 100%;
