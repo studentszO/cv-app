@@ -11,16 +11,16 @@ const generalFormData = {
 const expFormData = {
   companyName: "",
   positionTitle: "",
-  mainResponsibilities: [],
-  expStartYear: new Date(),
-  expEndYear: new Date(),
+  mainResponsibilities: ["", ""],
+  expStartYear: "",
+  expEndYear: "",
   id: 0,
 };
 
 const eduFormData = {
   school: "",
-  schoolStartYear: new Date(),
-  schoolEndYear: new Date(),
+  schoolStartYear: "",
+  schoolEndYear: "",
   title: "",
   id: 0,
 };
